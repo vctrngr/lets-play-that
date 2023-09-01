@@ -14,10 +14,10 @@ from time import sleep
 # creates an .m3u playlist with their paths.
 
 # take input number from Entry
-def printtext():
+def numberOfSongs():
     global number
-    string = number.get() 
-    print(string)
+    global numSongs
+    numSongs = int(number.get())
     root.destroy()
 
 
@@ -28,7 +28,7 @@ number = tk.Entry(root)
 number.pack()
 number.focus_set()
 
-b = tk.Button(root,text='okay',command=printtext)
+b = tk.Button(root,text='okay',command=numberOfSongs)
 b.pack(side='bottom')
 root.mainloop()
 
@@ -96,7 +96,7 @@ def songFinderCore(folder):
 musicas = []
 
 # number of tracks
-while len(musicas) < 10:
+while len(musicas) < numSongs:
     mus = songFinderCore(mainFolder)
     if mus not in musicas:  # should remove duplicates 
         musicas.append(mus)
