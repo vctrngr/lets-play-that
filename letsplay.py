@@ -13,6 +13,21 @@ import audioread
 # chooses files from a folder containing audio files,
 # creates an .m3u playlist with their paths.
 
+# TO DO: DURATION MODE:
+# set a maxDuration var, and a currentDuration = 0
+# when choosing each song,
+# get its duration
+# check if (songDuration + currentDuration) not >= maxDuration,
+# if so, then
+# increase currentDuration, add song to list
+# if greater, skip song and look again
+
+# define duration margin, because it will never be exact;
+# e.g. if it's a 30-min playlist,
+# accept anything between 27 and 33 min, or between 28 and 32 min
+# currentDuration doesn't have to be exactly equal to maxDuration, when comparing
+
+
 # maybe it's a good idea to have a max number?
 max_number = 100
 
