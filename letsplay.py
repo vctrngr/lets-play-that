@@ -13,13 +13,27 @@ from time import sleep
 # chooses files from a folder containing audio files,
 # creates an .m3u playlist with their paths.
 
-# withdraw tkinter root window
-root = tk.Tk()
-root.withdraw
+# take input number from Entry
+def printtext():
+    global number
+    string = number.get() 
+    print(string)
+    root.destroy()
 
+
+# tkinter root window
+root = tk.Tk()
+
+number = tk.Entry(root)
+number.pack()
+number.focus_set()
+
+b = tk.Button(root,text='okay',command=printtext)
+b.pack(side='bottom')
+root.mainloop()
 
 # ask where the main music folder is:
-mainFolder = filedialog.askdirectory()
+mainFolder = filedialog.askdirectory(title='Choose a folder:')
 currentPath = mainFolder
 
 # TO DO:
