@@ -5,7 +5,7 @@ import subprocess
 from re import sub
 #from tkinter.messagebox import askokcancel
 import tkinter as tk
-from tkinter import filedialog
+from tkinter import filedialog, messagebox
 from time import sleep
 
 
@@ -13,12 +13,28 @@ from time import sleep
 # chooses files from a folder containing audio files,
 # creates an .m3u playlist with their paths.
 
+# maybe it's a good idea to have a max number?
+max_number = 100
+
+
 # take input number from Entry
 def numberOfSongs():
     global number
     global numSongs
-    numSongs = int(number.get())
-    root.destroy()
+    try:
+        numSongs = int(number.get())
+    except ValueError:
+        # send error message, stay in prompt window
+        messagebox.showerror("Not a number", "please enter a number")
+    else:
+        if numSongs == 0:
+            messagebox.showerror("Zero", "please enter a number greater than zero")
+        elif numSongs > max_number:
+            messagebox.showerror("Too many", "maximum number is %s" % max_number)
+            numSongs = 100
+            root.destroy()
+        else:
+            root.destroy()
 
 
 # tkinter root window
