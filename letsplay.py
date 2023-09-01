@@ -3,10 +3,10 @@ import os
 import random
 import subprocess
 from re import sub
-#from tkinter.messagebox import askokcancel
 import tkinter as tk
 from tkinter import filedialog, messagebox
 from time import sleep
+import audioread
 
 
 # >> random playlist maker <<
@@ -53,8 +53,6 @@ mainFolder = filedialog.askdirectory(title='Choose a folder:')
 currentPath = mainFolder
 
 # TO DO:
-# prevent repeated songs
-# choose number of songs
 # and/or choose by total duration (e.g. make a 30-minute playlist)
 
 
